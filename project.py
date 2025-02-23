@@ -11,9 +11,11 @@ MINES = 10
 # Цвета
 LIGHT_BLUE = (173, 216, 230)
 WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
+GREEN = (60, 222, 60)
 LIGHT_GREY = (211, 211, 211)
 RED = (255, 0, 0)
+BLACK = (0, 0, 0)
+
 
 class Cell:
     def __init__(self, row, col):
@@ -36,6 +38,8 @@ class Cell:
 
     def draw(self, screen):
         cell_rect = pygame.Rect(self.col * CELL_SIZE, self.row * CELL_SIZE, CELL_SIZE, CELL_SIZE)
+
+        # Рисуем клетку
         if self.is_revealed:
             pygame.draw.rect(screen, LIGHT_GREY, cell_rect)
             if self.is_mine:
@@ -44,14 +48,18 @@ class Cell:
                 font = pygame.font.Font(None, 36)
                 text_surface = font.render(str(self.neighbor_mines), True, BLACK)
                 screen.blit(text_surface, (cell_rect.x + (CELL_SIZE - text_surface.get_width()) // 2,
-                                            cell_rect.y + (CELL_SIZE - text_surface.get_height()) // 2))
+                                           cell_rect.y + (CELL_SIZE - text_surface.get_height()) // 2))
         else:
-            pygame.draw.rect(screen, LIGHT_BLUE if not self.flagged else RED, cell_rect)
+            pygame.draw.rect(screen, LIGHT_BLUE, cell_rect)
             if self.flagged:
                 font = pygame.font.Font(None, 36)
-                text_surface = font.render('🚩', True, BLACK)
+                text_surface = font.render('🚩', True, GREEN)
                 screen.blit(text_surface, (cell_rect.x + (CELL_SIZE - text_surface.get_width()) // 2,
-                                            cell_rect.y + (CELL_SIZE - text_surface.get_height()) // 2))
+                                           cell_rect.y + (CELL_SIZE - text_surface.get_height()) // 2))
+
+        # Рисуем границы клетки
+        pygame.draw.rect(screen, GREEN, cell_rect, 2)
+
 
 class Minesweeper:
     def __init__(self, rows=ROWS, cols=COLS, mines=MINES):
@@ -107,7 +115,7 @@ class Minesweeper:
                     neighbor_cell = self.cells[neighbor_x][neighbor_y]
                     if not neighbor_cell.is_revealed and not neighbor_cell.flagged:
                         if neighbor_cell.reveal() and neighbor_cell.neighbor_mines == 0:
-                                                # Рекурсивно раскрываем соседние клетки
+                            # Рекурсивно раскрываем соседние клетки
                             self.reveal_adjacent_cells(neighbor_x, neighbor_y)
 
     def toggle_cell_flag(self, r, c):
@@ -139,11 +147,13 @@ class Minesweeper:
             for cell in row:
                 cell.draw(screen)
 
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Сапер")
     clock = pygame.time.Clock()
+
     game = Minesweeper()
 
     running = True
@@ -166,21 +176,21 @@ def main():
 
         game.draw(screen)
 
-                                # Проверка завершения игры и отображение сообщения
         if game.game_over_flag:
             font = pygame.font.Font(None, 48)
             text_surface = font.render("Игра окончена!", True, RED)
             screen.blit(text_surface, (WIDTH // 2 - text_surface.get_width() // 2,
-                                                               HEIGHT // 2 - text_surface.get_height() // 2))
+                        HEIGHT // 2 - text_surface.get_height() // 2))
 
         if game.win_flag:
             font = pygame.font.Font(None, 48)
             text_surface = font.render("Вы победили!", True, BLACK)
             screen.blit(text_surface, (WIDTH // 2 - text_surface.get_width() // 2,
-                                        HEIGHT // 2 - text_surface.get_height() // 2))
+                        HEIGHT // 2 - text_surface.get_height() // 2))
 
         pygame.display.flip()
         clock.tick(60)
+
 
 if __name__ == "__main__":
     main()
