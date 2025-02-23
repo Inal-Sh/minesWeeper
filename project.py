@@ -169,7 +169,7 @@ def display_difficulty_menu(screen):
         buttons.append((difficulty, button_rect))
 
         pygame.draw.rect(screen, LIGHT_BLUE if i % 2 == 0 else LIGHT_GREY, button_rect)
-        difficulty_surface = font.render(difficulty, True, BLACK)
+        difficulty_surface = font.render(difficulty, True, GREEN)
         screen.blit(difficulty_surface,
                     (button_rect.x + button_rect.width // 2 - difficulty_surface.get_width() // 2,
                      button_rect.y + button_rect.height // 2 - difficulty_surface.get_height() // 2))
@@ -207,6 +207,7 @@ def main_menu():
 
 def start_game(difficulty):
     rows, cols, mines = DIFFICULTY_SETTINGS[difficulty]
+    global CELL_SIZE
     WIDTH, HEIGHT = cols * CELL_SIZE, rows * CELL_SIZE
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
