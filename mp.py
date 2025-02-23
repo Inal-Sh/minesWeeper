@@ -207,6 +207,7 @@ def main_menu():
 
 def start_game(difficulty):
     rows, cols, mines = DIFFICULTY_SETTINGS[difficulty]
+    global CELL_SIZE
     WIDTH, HEIGHT = cols * CELL_SIZE, rows * CELL_SIZE
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
