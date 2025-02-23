@@ -12,6 +12,7 @@ MINES = 10
 LIGHT_BLUE = (173, 216, 230)
 LIGHT_GREY = (211, 211, 211)
 BLACK = (0, 0, 0)
+GREEN = (70, 210, 70)
 
 
 class Cell(pygame.sprite.Sprite):
@@ -47,13 +48,16 @@ class Cell(pygame.sprite.Sprite):
                 font = pygame.font.Font(None, 36)
                 text_surface = font.render(str(self.neighbor_mines), True, BLACK)
                 self.image.blit(text_surface, (CELL_SIZE // 2 - text_surface.get_width() // 2,
-                                               CELL_SIZE // 2 - text_surface.get_height() // 2))
+                                                CELL_SIZE // 2 - text_surface.get_height() // 2))
         else:
             self.image.fill(LIGHT_BLUE)
             if self.flagged:
                 # Отображаем изображение флага
                 flag_resized = pygame.transform.scale(flag_image, (CELL_SIZE, CELL_SIZE))
                 self.image.blit(flag_resized, (0, 0))
+
+        # Рисуем границу вокруг клетки
+        pygame.draw.rect(self.image, GREEN, (0, 0, CELL_SIZE, CELL_SIZE), 1)
 
 
 class Minesweeper:
