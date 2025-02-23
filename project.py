@@ -10,21 +10,21 @@ MINES = 10
 
 # Цвета
 LIGHT_BLUE = (173, 216, 230)
-WHITE = (255, 255, 255)
-GREEN = (60, 222, 60)
 LIGHT_GREY = (211, 211, 211)
-RED = (255, 0, 0)
 BLACK = (0, 0, 0)
 
 
-class Cell:
+class Cell(pygame.sprite.Sprite):
     def __init__(self, row, col):
+        super().__init__()
         self.row = row
         self.col = col
         self.is_mine = False
         self.is_revealed = False
         self.flagged = False
         self.neighbor_mines = 0
+        self.image = pygame.Surface((CELL_SIZE, CELL_SIZE))
+        self.rect = self.image.get_rect(topleft=(col * CELL_SIZE, row * CELL_SIZE))
 
     def reveal(self):
         if not self.is_revealed and not self.flagged:
@@ -36,29 +36,24 @@ class Cell:
         if not self.is_revealed:
             self.flagged = not self.flagged
 
-    def draw(self, screen):
-        cell_rect = pygame.Rect(self.col * CELL_SIZE, self.row * CELL_SIZE, CELL_SIZE, CELL_SIZE)
-
-        # Рисуем клетку
+    def update(self, bomb_image, flag_image):
         if self.is_revealed:
-            pygame.draw.rect(screen, LIGHT_GREY, cell_rect)
+            self.image.fill(LIGHT_GREY)
             if self.is_mine:
-                pygame.draw.circle(screen, RED, cell_rect.center, CELL_SIZE // 4)
+                # Отображаем изображение бомбы
+                bomb_resized = pygame.transform.scale(bomb_image, (CELL_SIZE, CELL_SIZE))
+                self.image.blit(bomb_resized, (0, 0))
             elif self.neighbor_mines > 0:
                 font = pygame.font.Font(None, 36)
                 text_surface = font.render(str(self.neighbor_mines), True, BLACK)
-                screen.blit(text_surface, (cell_rect.x + (CELL_SIZE - text_surface.get_width()) // 2,
-                                           cell_rect.y + (CELL_SIZE - text_surface.get_height()) // 2))
+                self.image.blit(text_surface, (CELL_SIZE // 2 - text_surface.get_width() // 2,
+                                               CELL_SIZE // 2 - text_surface.get_height() // 2))
         else:
-            pygame.draw.rect(screen, LIGHT_BLUE, cell_rect)
+            self.image.fill(LIGHT_BLUE)
             if self.flagged:
-                font = pygame.font.Font(None, 36)
-                text_surface = font.render('🚩', True, GREEN)
-                screen.blit(text_surface, (cell_rect.x + (CELL_SIZE - text_surface.get_width()) // 2,
-                                           cell_rect.y + (CELL_SIZE - text_surface.get_height()) // 2))
-
-        # Рисуем границы клетки
-        pygame.draw.rect(screen, GREEN, cell_rect, 2)
+                # Отображаем изображение флага
+                flag_resized = pygame.transform.scale(flag_image, (CELL_SIZE, CELL_SIZE))
+                self.image.blit(flag_resized, (0, 0))
 
 
 class Minesweeper:
@@ -142,10 +137,15 @@ class Minesweeper:
         self.game_over_flag = False
         self.win_flag = False
 
+    def update(self, bomb_image, flag_image):
+        for row in self.cells:
+            for cell in row:
+                cell.update(bomb_image, flag_image)
+
     def draw(self, screen):
         for row in self.cells:
             for cell in row:
-                cell.draw(screen)
+                screen.blit(cell.image, cell.rect)
 
 
 def main():
@@ -154,11 +154,14 @@ def main():
     pygame.display.set_caption("Сапер")
     clock = pygame.time.Clock()
 
+    bomb_image = pygame.image.load('bomb.png').convert_alpha()
+    flag_image = pygame.image.load('flag.png').convert_alpha()
+
     game = Minesweeper()
 
     running = True
     while running:
-        screen.fill(WHITE)
+        screen.fill((255, 255, 255))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -174,19 +177,22 @@ def main():
                 elif event.button == 3:  # ПКМ для установки флага
                     game.toggle_cell_flag(row, col)
 
+        game.update(bomb_image, flag_image)
+
         game.draw(screen)
 
+        # Проверка завершения игры и отображение сообщения
         if game.game_over_flag:
             font = pygame.font.Font(None, 48)
-            text_surface = font.render("Игра окончена!", True, RED)
+            text_surface = font.render("Игра окончена!", True, (255, 0, 0))
             screen.blit(text_surface, (WIDTH // 2 - text_surface.get_width() // 2,
-                        HEIGHT // 2 - text_surface.get_height() // 2))
+                                               HEIGHT // 2 - text_surface.get_height() // 2))
 
         if game.win_flag:
             font = pygame.font.Font(None, 48)
-            text_surface = font.render("Вы победили!", True, BLACK)
+            text_surface = font.render("Вы победили!", True, (0, 0, 0))
             screen.blit(text_surface, (WIDTH // 2 - text_surface.get_width() // 2,
-                        HEIGHT // 2 - text_surface.get_height() // 2))
+                                                HEIGHT // 2 - text_surface.get_height() // 2))
 
         pygame.display.flip()
         clock.tick(60)
