@@ -90,12 +90,13 @@ class Minesweeper:
                                 self.cells[r][c].neighbor_mines += 1
 
     def reveal_cell(self, r, c):
-        if not self.cells[r][c].reveal():
-            self.game_over()  # Игра окончена
-            return False
+        if not self.game_over_flag:  # Проверка на состояние игры
+            if not self.cells[r][c].reveal():
+                self.game_over()  # Игра окончена
+                return False
 
-        if self.cells[r][c].neighbor_mines == 0:
-            self.reveal_adjacent_cells(r, c)  # Раскрываем соседние клетки
+            if self.cells[r][c].neighbor_mines == 0:
+                self.reveal_adjacent_cells(r, c)  # Раскрываем соседние клетки
 
         return True
 
@@ -114,7 +115,8 @@ class Minesweeper:
                             self.reveal_adjacent_cells(neighbor_x, neighbor_y)
 
     def toggle_cell_flag(self, r, c):
-        self.cells[r][c].toggle_flag()
+        if not self.game_over_flag:  # Проверка на состояние игры
+            self.cells[r][c].toggle_flag()
 
     def check_win(self):
         revealed_cells = sum(cell.is_revealed for row in self.cells for cell in row)
@@ -147,13 +149,13 @@ class Minesweeper:
             for cell in row:
                 screen.blit(cell.image, cell.rect)
 
-
 def main():
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Сапер")
     clock = pygame.time.Clock()
 
+    # Загружаем изображения и изменяем их размер до CELL_SIZE x CELL_SIZE
     bomb_image = pygame.image.load('bomb.png').convert_alpha()
     flag_image = pygame.image.load('flag.png').convert_alpha()
 
@@ -177,26 +179,25 @@ def main():
                 elif event.button == 3:  # ПКМ для установки флага
                     game.toggle_cell_flag(row, col)
 
-        game.update(bomb_image, flag_image)
+        game.update(bomb_image, flag_image)  # Обновляем спрайты
 
-        game.draw(screen)
+        game.draw(screen)  # Отрисовываем спрайты
 
         # Проверка завершения игры и отображение сообщения
         if game.game_over_flag:
             font = pygame.font.Font(None, 48)
             text_surface = font.render("Игра окончена!", True, (255, 0, 0))
             screen.blit(text_surface, (WIDTH // 2 - text_surface.get_width() // 2,
-                                               HEIGHT // 2 - text_surface.get_height() // 2))
+                                        HEIGHT // 2 - text_surface.get_height() // 2))
 
         if game.win_flag:
             font = pygame.font.Font(None, 48)
             text_surface = font.render("Вы победили!", True, (0, 0, 0))
             screen.blit(text_surface, (WIDTH // 2 - text_surface.get_width() // 2,
-                                                HEIGHT // 2 - text_surface.get_height() // 2))
+                                        HEIGHT // 2 - text_surface.get_height() // 2))
 
         pygame.display.flip()
         clock.tick(60)
-
 
 if __name__ == "__main__":
     main()
