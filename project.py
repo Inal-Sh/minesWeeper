@@ -1,10 +1,12 @@
 import pygame
+
 import random
+
 import sys
 
 # Константы для уровней сложности
 DIFFICULTY_SETTINGS = {
-    'Легкий': (8, 8, 10),  # (ROWS, COLS, MINES)
+    'Легкий': (16, 16, 15),  # (ROWS, COLS, MINES)
     'Средний': (16, 16, 40),
     'Сложный': (24, 24, 99)
 }
@@ -19,6 +21,14 @@ LIGHT_BLUE = (173, 216, 230)
 LIGHT_GREY = (211, 211, 211)
 BLACK = (0, 0, 0)
 GREEN = (70, 210, 70)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+L_B = (0, 0, 255)
+
+# Переменные для управления временем
+the_world = True  # Условие для отслеживания времени
+last_time = 0  # Переменная для хранения последнего результата времени
+start_time = pygame.time.get_ticks()  # Запоминаем время начала
 
 
 class Cell(pygame.sprite.Sprite):
@@ -73,6 +83,9 @@ class Minesweeper:
         self.calculate_neighbors()
         self.game_over_flag = False
         self.win_flag = False
+        self.clock = pygame.time.Clock()
+        self.running = True
+        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
     def place_mines(self):
         mine_positions = random.sample(range(self.rows * self.cols), self.mines)
@@ -177,7 +190,7 @@ def display_difficulty_menu(screen):
     return buttons
 
 
-def main_menu():
+def main():
     pygame.init()
 
     global WIDTH, HEIGHT
@@ -201,16 +214,14 @@ def main_menu():
                     for difficulty, button_rect in buttons:
                         if button_rect.collidepoint(mouse_pos):
                             start_game(difficulty)
-
         pygame.display.flip()
 
 
 def start_game(difficulty):
     rows, cols, mines = DIFFICULTY_SETTINGS[difficulty]
-    global CELL_SIZE
+    global CELL_SIZE, WIDTH, HEIGHT, the_world, last_time
     WIDTH, HEIGHT = cols * CELL_SIZE, rows * CELL_SIZE
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
-
     game = Minesweeper(rows=rows, cols=cols, mines=mines)
 
     # Загружаем изображения и изменяем их размер до CELL_SIZE x CELL_SIZE
@@ -220,7 +231,7 @@ def start_game(difficulty):
     clock = pygame.time.Clock()
 
     while True:
-        screen.fill((255, 255, 255))
+        screen.fill(WHITE)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -237,20 +248,32 @@ def start_game(difficulty):
                     game.check_win()
                 elif event.button == 3:
                     game.toggle_cell_flag(row, col)
+        screen.fill(WHITE)
+        if the_world:
+            current_time = pygame.time.get_ticks()  # Получаем текущее время
+            last_time = current_time - start_time  # Вычисляем прошедшее время
+        else:
+            pass
+            the_world = not the_world
 
+        # Ограничение до 60 кадров в секунду
+        pygame.time.delay(16)  # ~60 FPS (1000ms / 60)
         game.update(bomb_image, flag_image)
         game.draw(screen)
 
         if game.game_over_flag:
+            the_world = False
             font = pygame.font.Font(None, 48)
-            text_surface = font.render("Игра окончена!", True, (255, 0, 0))
+            text_surface = font.render(f"Вы проиграли Время: {int(last_time / 1000):.2f} сек", True, RED)
+
             screen.blit(text_surface,
                         (WIDTH // 2 - text_surface.get_width() // 2,
                          HEIGHT // 2 - text_surface.get_height() // 2))
 
         if game.win_flag:
+            the_world = False
             font = pygame.font.Font(None, 48)
-            text_surface = font.render("Вы победили!", True, (0, 0, 0))
+            text_surface = font.render(f"Вы победили Время: {int(last_time / 1000):.2f} сек", True, L_B)
             screen.blit(text_surface,
                         (WIDTH // 2 - text_surface.get_width() // 2,
                          HEIGHT // 2 - text_surface.get_height() // 2))
@@ -260,4 +283,4 @@ def start_game(difficulty):
 
 
 if __name__ == "__main__":
-    main_menu()
+    main()
