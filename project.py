@@ -255,6 +255,7 @@ def start_game(difficulty):
         else:
             pass
             the_world = not the_world
+        pygame.display.set_caption(f"Сапер - Время: {int(last_time / 1000)} сек")
 
         # Ограничение до 60 кадров в секунду
         pygame.time.delay(16)  # ~60 FPS (1000ms / 60)
@@ -264,7 +265,7 @@ def start_game(difficulty):
         if game.game_over_flag:
             the_world = False
             font = pygame.font.Font(None, 48)
-            text_surface = font.render(f"Вы проиграли Время: {int(last_time / 1000):.2f} сек", True, RED)
+            text_surface = font.render(f"Вы проиграли Время: {int(last_time / 1000)} сек", True, RED)
 
             screen.blit(text_surface,
                         (WIDTH // 2 - text_surface.get_width() // 2,
@@ -273,7 +274,7 @@ def start_game(difficulty):
         if game.win_flag:
             the_world = False
             font = pygame.font.Font(None, 48)
-            text_surface = font.render(f"Вы победили Время: {int(last_time / 1000):.2f} сек", True, L_B)
+            text_surface = font.render(f"Вы победили Время: {int(last_time / 1000)} сек", True, L_B)
             screen.blit(text_surface,
                         (WIDTH // 2 - text_surface.get_width() // 2,
                          HEIGHT // 2 - text_surface.get_height() // 2))
