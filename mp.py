@@ -39,7 +39,7 @@ class Cell(pygame.sprite.Sprite):
             return not self.is_mine
         return True
 
-    def set_flag(self):
+    def toggle_flag(self):
         if not self.is_revealed:
             self.flagged = not self.flagged
 
@@ -103,11 +103,11 @@ class Minesweeper:
                 return False
 
             if self.cells[r][c].neighbor_mines == 0:
-                self.reveal_neighbour_cells(r, c)
+                self.reveal_adjacent_cells(r, c)
 
         return True
 
-    def reveal_neighbour_cells(self, x, y):
+    def reveal_adjacent_cells(self, x, y):
         for dr in [-1, 0, 1]:
             for dc in [-1, 0, 1]:
                 if dr == 0 and dc == 0:
@@ -118,11 +118,11 @@ class Minesweeper:
                     neighbor_cell = self.cells[neighbor_x][neighbor_y]
                     if not neighbor_cell.is_revealed and not neighbor_cell.flagged:
                         if neighbor_cell.reveal() and neighbor_cell.neighbor_mines == 0:
-                            self.reveal_neighbour_cells(neighbor_x, neighbor_y)
+                            self.reveal_adjacent_cells(neighbor_x, neighbor_y)
 
     def toggle_cell_flag(self, r, c):
         if not self.game_over_flag:
-            self.cells[r][c].set_flag()
+            self.cells[r][c].toggle_flag()
 
     def check_win(self):
         revealed_cells = sum(cell.is_revealed for row in self.cells for cell in row)
