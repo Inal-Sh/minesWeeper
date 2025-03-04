@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ec5b741-f0cb-4a86-b599-8b855f23b8ac" name="Changes" comment="exp.py и mp.py добавлены">
+    <list default="true" id="5ec5b741-f0cb-4a86-b599-8b855f23b8ac" name="Changes" comment="Добавил таймер в название окна">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exp.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mp.py" beforeDir="false" afterPath="$PROJECT_DIR$/mp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +44,22 @@
   "keyToString": {
     "Python.Primary.executor": "Run",
     "Python.exp.executor": "Run",
+    "Python.fdg.executor": "Run",
     "Python.mp.executor": "Run",
     "Python.project.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "Errors"
+    "last_opened_file_path": "E:/Users/user/PycharmProjects/Desktop/minesWeeper",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.exp">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Users\user\PycharmProjects\Desktop\minesWeeper" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.fdg">
     <configuration name="Primary" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="minesWeeper" />
       <option name="ENV_FILES" value="" />
@@ -86,6 +96,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="fdg" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="minesWeeper" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fdg.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -140,8 +172,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.exp" />
+        <item itemvalue="Python.fdg" />
         <item itemvalue="Python.mp" />
+        <item itemvalue="Python.exp" />
         <item itemvalue="Python.project" />
         <item itemvalue="Python.Primary" />
       </list>
@@ -179,7 +212,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740836204348</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавил таймер">
+      <option name="closed" value="true" />
+      <created>1740845879255</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740845879255</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Добавил таймер в название окна">
+      <option name="closed" value="true" />
+      <created>1740846063201</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740846063201</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +245,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="начало, добавлена QT-версия игры для дальнейших изменений" />
     <MESSAGE value="exp.py и mp.py добавлены" />
-    <option name="LAST_COMMIT_MESSAGE" value="exp.py и mp.py добавлены" />
+    <MESSAGE value="Добавил таймер" />
+    <MESSAGE value="Добавил таймер в название окна" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил таймер в название окна" />
   </component>
 </project>
