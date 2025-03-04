@@ -1,0 +1,263 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5ec5b741-f0cb-4a86-b599-8b855f23b8ac\" name=\"Changes\" comment=\"начало, добавлена QT-версия игры для дальнейших изменений\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 5\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2tJ9hFIUmJIM4lHbpflALA5BaqG\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Python.Primary.executor\": \"Run\",\r\n    \"Python.project.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"intro\",\r\n    \"settings.editor.selected.configurable\": \"Errors\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Python.project\">\r\n    <configuration name=\"Primary\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"minesWeeper\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/Primary.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"project\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"minesWeeper\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/project.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.project\" />\r\n        <item itemvalue=\"Python.Primary\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5ec5b741-f0cb-4a86-b599-8b855f23b8ac\" name=\"Changes\" comment=\"\" />\r\n      <created>1740059427859</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1740059427859</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"начало, добавлена QT-версия игры для дальнейших изменений\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1740059531040</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1740059531040</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"начало, добавлена QT-версия игры для дальнейших изменений\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"начало, добавлена QT-версия игры для дальнейших изменений\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,9 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5ec5b741-f0cb-4a86-b599-8b855f23b8ac" name="Changes" comment="начало, добавлена QT-версия игры для дальнейших изменений">
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="5ec5b741-f0cb-4a86-b599-8b855f23b8ac" name="Changes" comment="исправления">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/mp.py" beforeDir="false" afterPath="$PROJECT_DIR$/mp.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -37,15 +37,24 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Python.Primary.executor": "Run",
+-    "Python.project.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "intro",
+-    "settings.editor.selected.configurable": "Errors"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Python.Primary.executor&quot;: &quot;Run&quot;,
++    &quot;Python.mp (1).executor&quot;: &quot;Run&quot;,
++    &quot;Python.mp (2).executor&quot;: &quot;Run&quot;,
++    &quot;Python.mp.executor&quot;: &quot;Run&quot;,
++    &quot;Python.project.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;intro&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
++  }
++}</component>
++  <component name="RecentsManager">
++    <key name="MoveFile.RECENT_KEYS">
++      <recent name="E:\Users\user\PycharmProjects\Desktop\minesWeeper" />
++      <recent name="E:\Users\user\PycharmProjects\Desktop\minesWeeper\.venv" />
++    </key>
++  </component>
+   <component name="RunManager" selected="Python.project">
+     <configuration name="Primary" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="minesWeeper" />
+@@ -61,6 +70,72 @@
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Primary.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="mp (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="minesWeeper" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mp.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="mp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="minesWeeper" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.venv" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="E:\Users\user\PycharmProjects\Desktop\minesWeeper\mp.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="mp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="minesWeeper" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.venv" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="E:\Users\user\PycharmProjects\Desktop\minesWeeper\mp.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -94,6 +169,8 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Python.project" />
++        <item itemvalue="Python.mp (1)" />
++        <item itemvalue="Python.mp" />
+         <item itemvalue="Python.Primary" />
+       </list>
+     </recent_temporary>
+@@ -122,7 +199,87 @@
+       <option name="project" value="LOCAL" />
+       <updated>1740059531040</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="полностью переделал код с PyQt на pygame">
++      <option name="closed" value="true" />
++      <created>1740325891117</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1740325891117</updated>
++    </task>
++    <task id="LOCAL-00003" summary="добавил границы к клеткам для лучшего восприятия">
++      <option name="closed" value="true" />
++      <created>1740327128519</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1740327128519</updated>
++    </task>
++    <task id="LOCAL-00004" summary="сделал заготовки для спрайтов флажка и бомбы">
++      <option name="closed" value="true" />
++      <created>1740327756784</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1740327756784</updated>
++    </task>
++    <task id="LOCAL-00005" summary="брал лишний файл">
++      <option name="closed" value="true" />
++      <created>1740327861841</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1740327861841</updated>
++    </task>
++    <task id="LOCAL-00006" summary="добавил спрайты флажка и бомбы">
++      <option name="closed" value="true" />
++      <created>1740329053594</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1740329053594</updated>
++    </task>
++    <task id="LOCAL-00007" summary="добавил спрайты флажка и бомбы">
++      <option name="closed" value="true" />
++      <created>1740329120537</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1740329120537</updated>
++    </task>
++    <task id="LOCAL-00008" summary="исправил ошибку при которой после поражения или победы было все еще можно раскрывать клетки и ставить флажки">
++      <option name="closed" value="true" />
++      <created>1740330414407</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1740330414407</updated>
++    </task>
++    <task id="LOCAL-00009" summary="вернул границы клеток">
++      <option name="closed" value="true" />
++      <created>1740330773819</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1740330773819</updated>
++    </task>
++    <task id="LOCAL-00010" summary="добавил простой выбор сложности">
++      <option name="closed" value="true" />
++      <created>1740332442923</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1740332442923</updated>
++    </task>
++    <task id="LOCAL-00011" summary="исправления">
++      <option name="closed" value="true" />
++      <created>1740334567204</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1740334567204</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -138,6 +295,16 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="начало, добавлена QT-версия игры для дальнейших изменений" />
+-    <option name="LAST_COMMIT_MESSAGE" value="начало, добавлена QT-версия игры для дальнейших изменений" />
++    <MESSAGE value="полностью переделал код с PyQt на pygame" />
++    <MESSAGE value="добавил границы к клеткам для лучшего восприятия" />
++    <MESSAGE value="сделал заготовки для спрайтов флажка и бомбы" />
++    <MESSAGE value="убрал лишний файл" />
++    <MESSAGE value="убрал лишний файл" />
++    <MESSAGE value="добавил спрайты флажка и бомбы" />
++    <MESSAGE value="исправил ошибку при которой после поражения или победы было все еще можно раскрывать клетки и ставить флажки" />
++    <MESSAGE value="вернул границы клеток" />
++    <MESSAGE value="добавил простой выбор сложности" />
++    <MESSAGE value="исправления" />
++    <option name="LAST_COMMIT_MESSAGE" value="исправления" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: mp.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pygame\r\nimport random\r\nimport sys\r\n\r\n# Константы для уровней сложности\r\nDIFFICULTY_SETTINGS = {\r\n    'Легкий': (8, 8, 10),  # (ROWS, COLS, MINES)\r\n    'Средний': (16, 16, 40),\r\n    'Сложный': (24, 24, 99)\r\n}\r\n\r\nWIDTH, HEIGHT = 400, 400\r\nCELL_SIZE = 40\r\nROWS, COLS = HEIGHT // CELL_SIZE, WIDTH // CELL_SIZE\r\nMINES = 10\r\n\r\n# Цвета\r\nLIGHT_BLUE = (173, 216, 230)\r\nLIGHT_GREY = (211, 211, 211)\r\nBLACK = (0, 0, 0)\r\nGREEN = (70, 210, 70)\r\n\r\n\r\nclass Cell(pygame.sprite.Sprite):\r\n    def __init__(self, row, col):\r\n        super().__init__()\r\n        self.row = row\r\n        self.col = col\r\n        self.is_mine = False\r\n        self.is_revealed = False\r\n        self.flagged = False\r\n        self.neighbor_mines = 0\r\n        self.image = pygame.Surface((CELL_SIZE, CELL_SIZE))\r\n        self.rect = self.image.get_rect(topleft=(col * CELL_SIZE, row * CELL_SIZE))\r\n\r\n    def reveal(self):\r\n        if not self.is_revealed and not self.flagged:\r\n            self.is_revealed = True\r\n            return not self.is_mine\r\n        return True\r\n\r\n    def toggle_flag(self):\r\n        if not self.is_revealed:\r\n            self.flagged = not self.flagged\r\n\r\n    def update(self, bomb_image, flag_image):\r\n        if self.is_revealed:\r\n            self.image.fill(LIGHT_GREY)\r\n            if self.is_mine:\r\n                bomb_resized = pygame.transform.scale(bomb_image, (CELL_SIZE, CELL_SIZE))\r\n                self.image.blit(bomb_resized, (0, 0))\r\n            elif self.neighbor_mines > 0:\r\n                font = pygame.font.Font(None, 36)\r\n                text_surface = font.render(str(self.neighbor_mines), True, BLACK)\r\n                self.image.blit(text_surface, (CELL_SIZE // 2 - text_surface.get_width() // 2,\r\n                                               CELL_SIZE // 2 - text_surface.get_height() // 2))\r\n        else:\r\n            self.image.fill(LIGHT_BLUE)\r\n            if self.flagged:\r\n                flag_resized = pygame.transform.scale(flag_image, (CELL_SIZE, CELL_SIZE))\r\n                self.image.blit(flag_resized, (0, 0))\r\n\r\n        pygame.draw.rect(self.image, GREEN, (0, 0, CELL_SIZE, CELL_SIZE), 1)\r\n\r\n\r\nclass Minesweeper:\r\n    def __init__(self, rows=8, cols=8, mines=10):\r\n        self.rows = rows\r\n        self.cols = cols\r\n        self.mines = mines\r\n        self.cells = [[Cell(r, c) for c in range(cols)] for r in range(rows)]\r\n        self.place_mines()\r\n        self.calculate_neighbors()\r\n        self.game_over_flag = False\r\n        self.win_flag = False\r\n\r\n    def place_mines(self):\r\n        mine_positions = random.sample(range(self.rows * self.cols), self.mines)\r\n        for pos in mine_positions:\r\n            row = pos // self.cols\r\n            col = pos % self.cols\r\n            self.cells[row][col].is_mine = True\r\n\r\n    def calculate_neighbors(self):\r\n        for r in range(self.rows):\r\n            for c in range(self.cols):\r\n                if self.cells[r][c].is_mine:\r\n                    continue\r\n                for dr in [-1, 0, 1]:\r\n                    for dc in [-1, 0, 1]:\r\n                        if dr == 0 and dc == 0:\r\n                            continue\r\n                        neighbor_row = r + dr\r\n                        neighbor_col = c + dc\r\n                        if 0 <= neighbor_row < self.rows and 0 <= neighbor_col < self.cols:\r\n                            if self.cells[neighbor_row][neighbor_col].is_mine:\r\n                                self.cells[r][c].neighbor_mines += 1\r\n\r\n    def reveal_cell(self, r, c):\r\n        if not self.game_over_flag:\r\n            if not self.cells[r][c].reveal():\r\n                self.game_over()\r\n                return False\r\n\r\n            if self.cells[r][c].neighbor_mines == 0:\r\n                self.reveal_adjacent_cells(r, c)\r\n\r\n        return True\r\n\r\n    def reveal_adjacent_cells(self, x, y):\r\n        for dr in [-1, 0, 1]:\r\n            for dc in [-1, 0, 1]:\r\n                if dr == 0 and dc == 0:\r\n                    continue\r\n                neighbor_x = x + dr\r\n                neighbor_y = y + dc\r\n                if 0 <= neighbor_x < self.rows and 0 <= neighbor_y < self.cols:\r\n                    neighbor_cell = self.cells[neighbor_x][neighbor_y]\r\n                    if not neighbor_cell.is_revealed and not neighbor_cell.flagged:\r\n                        if neighbor_cell.reveal() and neighbor_cell.neighbor_mines == 0:\r\n                            self.reveal_adjacent_cells(neighbor_x, neighbor_y)\r\n\r\n    def toggle_cell_flag(self, r, c):\r\n        if not self.game_over_flag:\r\n            self.cells[r][c].toggle_flag()\r\n\r\n    def check_win(self):\r\n        revealed_cells = sum(cell.is_revealed for row in self.cells for cell in row)\r\n        if revealed_cells == (self.rows * self.cols - self.mines):\r\n            self.win_flag = True\r\n\r\n    def game_over(self):\r\n        self.game_over_flag = True\r\n\r\n    def reset_game(self):\r\n        for row in self.cells:\r\n            for cell in row:\r\n                cell.is_revealed = False\r\n                cell.is_mine = False\r\n                cell.neighbor_mines = 0\r\n                cell.flagged = False\r\n\r\n        self.place_mines()\r\n        self.calculate_neighbors()\r\n        self.game_over_flag = False\r\n        self.win_flag = False\r\n\r\n    def update(self, bomb_image, flag_image):\r\n        for row in self.cells:\r\n            for cell in row:\r\n                cell.update(bomb_image, flag_image)\r\n\r\n    def draw(self, screen):\r\n        for row in self.cells:\r\n            for cell in row:\r\n                screen.blit(cell.image, cell.rect)\r\n\r\n\r\ndef display_difficulty_menu(screen):\r\n    font = pygame.font.Font(None, 48)\r\n    title_surface = font.render(\"Выберите сложность\", True, BLACK)\r\n    screen.blit(title_surface, (WIDTH // 2 - title_surface.get_width() // 2, HEIGHT // 4))\r\n\r\n    difficulties = list(DIFFICULTY_SETTINGS.keys())\r\n    buttons = []\r\n\r\n    for i, difficulty in enumerate(difficulties):\r\n        button_rect = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 4 + (i + 1) * 60, 200, 50)\r\n        buttons.append((difficulty, button_rect))\r\n\r\n        pygame.draw.rect(screen, LIGHT_BLUE if i % 2 == 0 else LIGHT_GREY, button_rect)\r\n        difficulty_surface = font.render(difficulty, True, BLACK)\r\n        screen.blit(difficulty_surface,\r\n                    (button_rect.x + button_rect.width // 2 - difficulty_surface.get_width() // 2,\r\n                     button_rect.y + button_rect.height // 2 - difficulty_surface.get_height() // 2))\r\n\r\n    return buttons\r\n\r\n\r\ndef main_menu():\r\n    pygame.init()\r\n\r\n    global WIDTH, HEIGHT\r\n    WIDTH, HEIGHT = 400, 400\r\n    screen = pygame.display.set_mode((WIDTH, HEIGHT))\r\n    pygame.display.set_caption(\"Сапер - Выбор сложности\")\r\n\r\n    running = True\r\n    while running:\r\n        screen.fill((255, 255, 255))\r\n\r\n        buttons = display_difficulty_menu(screen)\r\n\r\n        for event in pygame.event.get():\r\n            if event.type == pygame.QUIT:\r\n                running = False\r\n\r\n            elif event.type == pygame.MOUSEBUTTONDOWN:\r\n                if event.button == 1:\r\n                    mouse_pos = event.pos\r\n                    for difficulty, button_rect in buttons:\r\n                        if button_rect.collidepoint(mouse_pos):\r\n                            start_game(difficulty)\r\n\r\n        pygame.display.flip()\r\n\r\n\r\ndef start_game(difficulty):\r\n    rows, cols, mines = DIFFICULTY_SETTINGS[difficulty]\r\n    global CELL_SIZE\r\n    WIDTH, HEIGHT = cols * CELL_SIZE, rows * CELL_SIZE\r\n    screen = pygame.display.set_mode((WIDTH, HEIGHT))\r\n\r\n    game = Minesweeper(rows=rows, cols=cols, mines=mines)\r\n\r\n    # Загружаем изображения и изменяем их размер до CELL_SIZE x CELL_SIZE\r\n    bomb_image = pygame.image.load('bomb.png').convert_alpha()\r\n    flag_image = pygame.image.load('flag.png').convert_alpha()\r\n\r\n    clock = pygame.time.Clock()\r\n\r\n    while True:\r\n        screen.fill((255, 255, 255))\r\n\r\n        for event in pygame.event.get():\r\n            if event.type == pygame.QUIT:\r\n                pygame.quit()\r\n                sys.exit()\r\n\r\n            elif event.type == pygame.MOUSEBUTTONDOWN:\r\n                mouse_pos = event.pos\r\n                row = mouse_pos[1] // CELL_SIZE\r\n                col = mouse_pos[0] // CELL_SIZE\r\n\r\n                if event.button == 1:\r\n                    game.reveal_cell(row, col)\r\n                    game.check_win()\r\n                elif event.button == 3:\r\n                    game.toggle_cell_flag(row, col)\r\n\r\n        game.update(bomb_image, flag_image)\r\n        game.draw(screen)\r\n\r\n        if game.game_over_flag:\r\n            font = pygame.font.Font(None, 48)\r\n            text_surface = font.render(\"Игра окончена!\", True, (255, 0, 0))\r\n            screen.blit(text_surface,\r\n                        (WIDTH // 2 - text_surface.get_width() // 2,\r\n                         HEIGHT // 2 - text_surface.get_height() // 2))\r\n\r\n        if game.win_flag:\r\n            font = pygame.font.Font(None, 48)\r\n            text_surface = font.render(\"Вы победили!\", True, (0, 0, 0))\r\n            screen.blit(text_surface,\r\n                        (WIDTH // 2 - text_surface.get_width() // 2,\r\n                         HEIGHT // 2 - text_surface.get_height() // 2))\r\n\r\n        pygame.display.flip()\r\n        clock.tick(60)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    main_menu()\r\n
+===================================================================
+diff --git a/mp.py b/mp.py
+--- a/mp.py	
++++ b/mp.py	
+@@ -169,7 +169,7 @@
+         buttons.append((difficulty, button_rect))
+ 
+         pygame.draw.rect(screen, LIGHT_BLUE if i % 2 == 0 else LIGHT_GREY, button_rect)
+-        difficulty_surface = font.render(difficulty, True, BLACK)
++        difficulty_surface = font.render(difficulty, True, GREEN)
+         screen.blit(difficulty_surface,
+                     (button_rect.x + button_rect.width // 2 - difficulty_surface.get_width() // 2,
+                      button_rect.y + button_rect.height // 2 - difficulty_surface.get_height() // 2))

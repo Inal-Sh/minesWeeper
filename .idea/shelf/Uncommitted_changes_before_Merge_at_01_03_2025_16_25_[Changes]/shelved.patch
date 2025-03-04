@@ -1,0 +1,370 @@
+Index: project.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import sys\r\nimport random\r\nfrom PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QGridLayout, QWidget, QMessageBox, QVBoxLayout\r\n\r\n\r\nclass DifficultySelection(QWidget):\r\n    def __init__(self):\r\n        super().__init__()\r\n        self.setWindowTitle(\"Выберите сложность\")\r\n        self.setGeometry(100, 100, 300, 200)\r\n\r\n        layout = QVBoxLayout()\r\n\r\n        easy_button = QPushButton(\"Легкий\")\r\n        medium_button = QPushButton(\"Средний\")\r\n        hard_button = QPushButton(\"Сложный\")\r\n\r\n        easy_button.clicked.connect(lambda: self.start_game(10, 10, 10))  # 10x10, 10 мин\r\n        medium_button.clicked.connect(lambda: self.start_game(16, 16, 40))  # 16x16, 40 мин\r\n        hard_button.clicked.connect(lambda: self.start_game(20, 20, 99))  # 20x20, 99 мин\r\n\r\n        layout.addWidget(easy_button)\r\n        layout.addWidget(medium_button)\r\n        layout.addWidget(hard_button)\r\n\r\n        self.setLayout(layout)\r\n\r\n    def start_game(self, rows, cols, mines):\r\n        self.game_window = Minesweeper(rows, cols, mines)\r\n        self.game_window.show()\r\n        self.close()  # Закрываем окно выбора сложности\r\n\r\n\r\nclass Cell(QPushButton):\r\n    def __init__(self, x, y, size):\r\n        super().__init__()\r\n        self.x = x\r\n        self.y = y\r\n        self.size = size\r\n        self.is_mine = False\r\n        self.is_revealed = False\r\n        self.neighbor_mines = 0\r\n        self.flagged = False\r\n        self.setFixedSize(size, size)\r\n        self.setStyleSheet(\"font-size: 20px; background-color: lightblue;\")\r\n\r\n    def reveal(self):\r\n        if not self.is_revealed and not self.flagged:\r\n            self.is_revealed = True\r\n            if self.is_mine:\r\n                self.setText('*')\r\n                self.setStyleSheet(\"background-color: red; color: white;\")\r\n                return False  # Game Over\r\n            else:\r\n                self.setStyleSheet(\"background-color: lightgrey;\")\r\n                if self.neighbor_mines > 0:\r\n                    self.setText(str(self.neighbor_mines))\r\n                return True  # Continue game\r\n        return True  # Already revealed\r\n\r\n    def toggle_flag(self):\r\n        if not self.is_revealed:\r\n            self.flagged = not self.flagged\r\n            if self.flagged:\r\n                self.setText('\uD83D\uDEA9')\r\n                self.setStyleSheet(\"font-size: 20px; background-color: lightblue; color: red;\")\r\n            else:\r\n                self.setText('')\r\n                self.setStyleSheet(\"font-size: 20px; background-color: lightblue;\")\r\n\r\n    def contextMenuEvent(self, event):\r\n        self.toggle_flag()\r\n\r\n\r\nclass Minesweeper(QMainWindow):\r\n    def __init__(self, rows=10, cols=10, mines=10):\r\n        super().__init__()\r\n        self.rows = rows\r\n        self.cols = cols\r\n        self.mines = mines\r\n        self.cells = [[Cell(r, c, 40) for c in range(cols)] for r in range(rows)]\r\n        self.initUI()\r\n        self.place_mines()\r\n        self.calculate_neighbors()\r\n\r\n    def initUI(self):\r\n        self.setWindowTitle(\"Сапер\")\r\n        central_widget = QWidget()\r\n        layout = QGridLayout()\r\n\r\n        for r in range(self.rows):\r\n            for c in range(self.cols):\r\n                cell = self.cells[r][c]\r\n                cell.clicked.connect(self.cell_clicked)\r\n                layout.addWidget(cell, r, c)\r\n\r\n        central_widget.setLayout(layout)\r\n\r\n        # Установка цвета фона для главного окна\r\n        self.setStyleSheet(\"background-color: lightgreen;\")\r\n\r\n        self.setCentralWidget(central_widget)  # Устанавливаем центральный виджет\r\n\r\n    def cell_clicked(self):\r\n        button = self.sender()\r\n        if button is not None:\r\n            if not button.flagged:\r\n                if not button.reveal():\r\n                    self.game_over()\r\n                else:\r\n                    if button.neighbor_mines == 0:\r\n                        self.reveal_adjacent_cells(button.x, button.y)\r\n                    self.check_win()\r\n\r\n    def reveal_adjacent_cells(self, x, y):\r\n        for dr in [-1, 0, 1]:\r\n            for dc in [-1, 0, 1]:\r\n                if dr == 0 and dc == 0:\r\n                    continue\r\n                neighbor_x = x + dr\r\n                neighbor_y = y + dc\r\n                if 0 <= neighbor_x < self.rows and 0 <= neighbor_y < self.cols:\r\n                    neighbor_cell = self.cells[neighbor_x][neighbor_y]\r\n                    if not neighbor_cell.is_revealed and not neighbor_cell.flagged:\r\n                        if neighbor_cell.reveal() and neighbor_cell.neighbor_mines == 0:\r\n                                            # Рекурсивно раскрываем соседние клетки\r\n                            self.reveal_adjacent_cells(neighbor_x, neighbor_y)\r\n\r\n    def place_mines(self):\r\n        mine_positions = random.sample(range(self.rows * self.cols), self.mines)\r\n        for pos in mine_positions:\r\n            row = pos // self.cols\r\n            col = pos % self.cols\r\n            self.cells[row][col].is_mine = True\r\n\r\n    def calculate_neighbors(self):\r\n        for r in range(self.rows):\r\n            for c in range(self.cols):\r\n                if self.cells[r][c].is_mine:\r\n                    continue\r\n                for dr in [-1, 0, 1]:\r\n                    for dc in [-1, 0, 1]:\r\n                        if dr == 0 and dc == 0:\r\n                            continue\r\n                        neighbor_row = r + dr\r\n                        neighbor_col = c + dc\r\n                        if 0 <= neighbor_row < self.rows and 0 <= neighbor_col < self.cols:\r\n                            if self.cells[neighbor_row][neighbor_col].is_mine:\r\n                                self.cells[r][c].neighbor_mines += 1\r\n\r\n    def game_over(self):\r\n        QMessageBox.warning(self, \"Игра окончена\", \"Вы попали на мину! Игра окончена!\")\r\n        self.reset_game()\r\n\r\n    def check_win(self):\r\n        revealed_cells = sum(cell.is_revealed for row in self.cells for cell in row)\r\n        if revealed_cells == (self.rows * self.cols - self.mines):\r\n            QMessageBox.information(self, \"Поздравляем!\", \"Вы очистили поле!\")\r\n            self.reset_game()\r\n\r\n    def reset_game(self):\r\n        for row in self.cells:\r\n            for cell in row:\r\n                cell.is_revealed = False\r\n                cell.is_mine = False\r\n                cell.neighbor_mines = 0\r\n                cell.flagged = False\r\n                cell.setText('')\r\n                cell.setStyleSheet(\"font-size: 20px; background-color: lightblue;\")\r\n\r\n        self.place_mines()\r\n        self.calculate_neighbors()\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    app = QApplication(sys.argv)\r\n    difficulty_selection = DifficultySelection()\r\n    difficulty_selection.show()\r\n    sys.exit(app.exec())\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/project.py b/project.py
+--- a/project.py	(revision d05f2ef6c654d9b3017d6d0adc39bc831e007584)
++++ b/project.py	(date 1740675332946)
+@@ -1,130 +1,78 @@
+-import sys
++import pygame
+ import random
+-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QGridLayout, QWidget, QMessageBox, QVBoxLayout
+-
++import sys
+ 
+-class DifficultySelection(QWidget):
+-    def __init__(self):
+-        super().__init__()
+-        self.setWindowTitle("Выберите сложность")
+-        self.setGeometry(100, 100, 300, 200)
++# Константы для уровней сложности
++DIFFICULTY_SETTINGS = {
++    'Легкий': (8, 8, 10),  # (ROWS, COLS, MINES)
++    'Средний': (16, 16, 40),
++    'Сложный': (24, 24, 99)
++}
+ 
+-        layout = QVBoxLayout()
++WIDTH, HEIGHT = 400, 400
++CELL_SIZE = 40
++ROWS, COLS = HEIGHT // CELL_SIZE, WIDTH // CELL_SIZE
++MINES = 10
+ 
+-        easy_button = QPushButton("Легкий")
+-        medium_button = QPushButton("Средний")
+-        hard_button = QPushButton("Сложный")
++# Цвета
++LIGHT_BLUE = (173, 216, 230)
++LIGHT_GREY = (211, 211, 211)
++BLACK = (0, 0, 0)
++GREEN = (70, 210, 70)
+ 
+-        easy_button.clicked.connect(lambda: self.start_game(10, 10, 10))  # 10x10, 10 мин
+-        medium_button.clicked.connect(lambda: self.start_game(16, 16, 40))  # 16x16, 40 мин
+-        hard_button.clicked.connect(lambda: self.start_game(20, 20, 99))  # 20x20, 99 мин
+ 
+-        layout.addWidget(easy_button)
+-        layout.addWidget(medium_button)
+-        layout.addWidget(hard_button)
+-
+-        self.setLayout(layout)
+-
+-    def start_game(self, rows, cols, mines):
+-        self.game_window = Minesweeper(rows, cols, mines)
+-        self.game_window.show()
+-        self.close()  # Закрываем окно выбора сложности
+-
+-
+-class Cell(QPushButton):
+-    def __init__(self, x, y, size):
++class Cell(pygame.sprite.Sprite):
++    def __init__(self, row, col):
+         super().__init__()
+-        self.x = x
+-        self.y = y
+-        self.size = size
++        self.row = row
++        self.col = col
+         self.is_mine = False
+         self.is_revealed = False
+-        self.neighbor_mines = 0
+         self.flagged = False
+-        self.setFixedSize(size, size)
+-        self.setStyleSheet("font-size: 20px; background-color: lightblue;")
++        self.neighbor_mines = 0
++        self.image = pygame.Surface((CELL_SIZE, CELL_SIZE))
++        self.rect = self.image.get_rect(topleft=(col * CELL_SIZE, row * CELL_SIZE))
+ 
+     def reveal(self):
+         if not self.is_revealed and not self.flagged:
+             self.is_revealed = True
++            return not self.is_mine
++        return True
++
++    def set_flag(self):
++        if not self.is_revealed:
++            self.flagged = not self.flagged
++
++    def update(self, bomb_image, flag_image):
++        if self.is_revealed:
++            self.image.fill(LIGHT_GREY)
+             if self.is_mine:
+-                self.setText('*')
+-                self.setStyleSheet("background-color: red; color: white;")
+-                return False  # Game Over
+-            else:
+-                self.setStyleSheet("background-color: lightgrey;")
+-                if self.neighbor_mines > 0:
+-                    self.setText(str(self.neighbor_mines))
+-                return True  # Continue game
+-        return True  # Already revealed
+-
+-    def toggle_flag(self):
+-        if not self.is_revealed:
+-            self.flagged = not self.flagged
++                bomb_resized = pygame.transform.scale(bomb_image, (CELL_SIZE, CELL_SIZE))
++                self.image.blit(bomb_resized, (0, 0))
++            elif self.neighbor_mines > 0:
++                font = pygame.font.Font(None, 36)
++                text_surface = font.render(str(self.neighbor_mines), True, BLACK)
++                self.image.blit(text_surface, (CELL_SIZE // 2 - text_surface.get_width() // 2,
++                                               CELL_SIZE // 2 - text_surface.get_height() // 2))
++        else:
++            self.image.fill(LIGHT_BLUE)
+             if self.flagged:
+-                self.setText('🚩')
+-                self.setStyleSheet("font-size: 20px; background-color: lightblue; color: red;")
+-            else:
+-                self.setText('')
+-                self.setStyleSheet("font-size: 20px; background-color: lightblue;")
++                flag_resized = pygame.transform.scale(flag_image, (CELL_SIZE, CELL_SIZE))
++                self.image.blit(flag_resized, (0, 0))
+ 
+-    def contextMenuEvent(self, event):
+-        self.toggle_flag()
++        pygame.draw.rect(self.image, GREEN, (0, 0, CELL_SIZE, CELL_SIZE), 1)
+ 
+ 
+-class Minesweeper(QMainWindow):
+-    def __init__(self, rows=10, cols=10, mines=10):
+-        super().__init__()
++class Minesweeper:
++    def __init__(self, rows=8, cols=8, mines=10):
+         self.rows = rows
+         self.cols = cols
+         self.mines = mines
+-        self.cells = [[Cell(r, c, 40) for c in range(cols)] for r in range(rows)]
+-        self.initUI()
++        self.cells = [[Cell(r, c) for c in range(cols)] for r in range(rows)]
+         self.place_mines()
+         self.calculate_neighbors()
+-
+-    def initUI(self):
+-        self.setWindowTitle("Сапер")
+-        central_widget = QWidget()
+-        layout = QGridLayout()
+-
+-        for r in range(self.rows):
+-            for c in range(self.cols):
+-                cell = self.cells[r][c]
+-                cell.clicked.connect(self.cell_clicked)
+-                layout.addWidget(cell, r, c)
+-
+-        central_widget.setLayout(layout)
+-
+-        # Установка цвета фона для главного окна
+-        self.setStyleSheet("background-color: lightgreen;")
+-
+-        self.setCentralWidget(central_widget)  # Устанавливаем центральный виджет
+-
+-    def cell_clicked(self):
+-        button = self.sender()
+-        if button is not None:
+-            if not button.flagged:
+-                if not button.reveal():
+-                    self.game_over()
+-                else:
+-                    if button.neighbor_mines == 0:
+-                        self.reveal_adjacent_cells(button.x, button.y)
+-                    self.check_win()
+-
+-    def reveal_adjacent_cells(self, x, y):
+-        for dr in [-1, 0, 1]:
+-            for dc in [-1, 0, 1]:
+-                if dr == 0 and dc == 0:
+-                    continue
+-                neighbor_x = x + dr
+-                neighbor_y = y + dc
+-                if 0 <= neighbor_x < self.rows and 0 <= neighbor_y < self.cols:
+-                    neighbor_cell = self.cells[neighbor_x][neighbor_y]
+-                    if not neighbor_cell.is_revealed and not neighbor_cell.flagged:
+-                        if neighbor_cell.reveal() and neighbor_cell.neighbor_mines == 0:
+-                                            # Рекурсивно раскрываем соседние клетки
+-                            self.reveal_adjacent_cells(neighbor_x, neighbor_y)
++        self.game_over_flag = False
++        self.win_flag = False
+ 
+     def place_mines(self):
+         mine_positions = random.sample(range(self.rows * self.cols), self.mines)
+@@ -148,15 +96,41 @@
+                             if self.cells[neighbor_row][neighbor_col].is_mine:
+                                 self.cells[r][c].neighbor_mines += 1
+ 
+-    def game_over(self):
+-        QMessageBox.warning(self, "Игра окончена", "Вы попали на мину! Игра окончена!")
+-        self.reset_game()
++    def reveal_cell(self, r, c):
++        if not self.game_over_flag:
++            if not self.cells[r][c].reveal():
++                self.game_over()
++                return False
++
++            if self.cells[r][c].neighbor_mines == 0:
++                self.reveal_neighbour_cells(r, c)
++
++        return True
++
++    def reveal_neighbour_cells(self, x, y):
++        for dr in [-1, 0, 1]:
++            for dc in [-1, 0, 1]:
++                if dr == 0 and dc == 0:
++                    continue
++                neighbor_x = x + dr
++                neighbor_y = y + dc
++                if 0 <= neighbor_x < self.rows and 0 <= neighbor_y < self.cols:
++                    neighbor_cell = self.cells[neighbor_x][neighbor_y]
++                    if not neighbor_cell.is_revealed and not neighbor_cell.flagged:
++                        if neighbor_cell.reveal() and neighbor_cell.neighbor_mines == 0:
++                            self.reveal_neighbour_cells(neighbor_x, neighbor_y)
++
++    def toggle_cell_flag(self, r, c):
++        if not self.game_over_flag:
++            self.cells[r][c].set_flag()
+ 
+     def check_win(self):
+         revealed_cells = sum(cell.is_revealed for row in self.cells for cell in row)
+         if revealed_cells == (self.rows * self.cols - self.mines):
+-            QMessageBox.information(self, "Поздравляем!", "Вы очистили поле!")
+-            self.reset_game()
++            self.win_flag = True
++
++    def game_over(self):
++        self.game_over_flag = True
+ 
+     def reset_game(self):
+         for row in self.cells:
+@@ -165,15 +139,124 @@
+                 cell.is_mine = False
+                 cell.neighbor_mines = 0
+                 cell.flagged = False
+-                cell.setText('')
+-                cell.setStyleSheet("font-size: 20px; background-color: lightblue;")
+ 
+         self.place_mines()
+         self.calculate_neighbors()
++        self.game_over_flag = False
++        self.win_flag = False
++
++    def update(self, bomb_image, flag_image):
++        for row in self.cells:
++            for cell in row:
++                cell.update(bomb_image, flag_image)
++
++    def draw(self, screen):
++        for row in self.cells:
++            for cell in row:
++                screen.blit(cell.image, cell.rect)
++
++
++def display_difficulty_menu(screen):
++    font = pygame.font.Font(None, 48)
++    title_surface = font.render("Выберите сложность", True, BLACK)
++    screen.blit(title_surface, (WIDTH // 2 - title_surface.get_width() // 2, HEIGHT // 4))
++
++    difficulties = list(DIFFICULTY_SETTINGS.keys())
++    buttons = []
++
++    for i, difficulty in enumerate(difficulties):
++        button_rect = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 4 + (i + 1) * 60, 200, 50)
++        buttons.append((difficulty, button_rect))
++
++        pygame.draw.rect(screen, LIGHT_BLUE if i % 2 == 0 else LIGHT_GREY, button_rect)
++        difficulty_surface = font.render(difficulty, True, BLACK)
++        screen.blit(difficulty_surface,
++                    (button_rect.x + button_rect.width // 2 - difficulty_surface.get_width() // 2,
++                     button_rect.y + button_rect.height // 2 - difficulty_surface.get_height() // 2))
++
++    return buttons
++
++
++def main_menu():
++    pygame.init()
++
++    global WIDTH, HEIGHT
++    WIDTH, HEIGHT = 400, 400
++    screen = pygame.display.set_mode((WIDTH, HEIGHT))
++    pygame.display.set_caption("Сапер - Выбор сложности")
++
++    running = True
++    while running:
++        screen.fill((255, 255, 255))
++
++        buttons = display_difficulty_menu(screen)
++
++        for event in pygame.event.get():
++            if event.type == pygame.QUIT:
++                running = False
++
++            elif event.type == pygame.MOUSEBUTTONDOWN:
++                if event.button == 1:
++                    mouse_pos = event.pos
++                    for difficulty, button_rect in buttons:
++                        if button_rect.collidepoint(mouse_pos):
++                            start_game(difficulty)
++
++        pygame.display.flip()
++
++
++def start_game(difficulty):
++    rows, cols, mines = DIFFICULTY_SETTINGS[difficulty]
++    WIDTH, HEIGHT = cols * CELL_SIZE, rows * CELL_SIZE
++    screen = pygame.display.set_mode((WIDTH, HEIGHT))
++
++    game = Minesweeper(rows=rows, cols=cols, mines=mines)
++
++    # Загружаем изображения и изменяем их размер до CELL_SIZE x CELL_SIZE
++    bomb_image = pygame.image.load('bomb.png').convert_alpha()
++    flag_image = pygame.image.load('flag.png').convert_alpha()
++
++    clock = pygame.time.Clock()
++
++    while True:
++        screen.fill((255, 255, 255))
++
++        for event in pygame.event.get():
++            if event.type == pygame.QUIT:
++                pygame.quit()
++                sys.exit()
++
++            elif event.type == pygame.MOUSEBUTTONDOWN:
++                mouse_pos = event.pos
++                row = mouse_pos[1] // CELL_SIZE
++                col = mouse_pos[0] // CELL_SIZE
++
++                if event.button == 1:
++                    game.reveal_cell(row, col)
++                    game.check_win()
++                elif event.button == 3:
++                    game.toggle_cell_flag(row, col)
++
++        game.update(bomb_image, flag_image)
++        game.draw(screen)
++
++        if game.game_over_flag:
++            font = pygame.font.Font(None, 48)
++            text_surface = font.render("Игра окончена!", True, (255, 0, 0))
++            screen.blit(text_surface,
++                        (WIDTH // 2 - text_surface.get_width() // 2,
++                         HEIGHT // 2 - text_surface.get_height() // 2))
++
++        if game.win_flag:
++            font = pygame.font.Font(None, 48)
++            text_surface = font.render("Вы победили!", True, (0, 0, 0))
++            screen.blit(text_surface,
++                        (WIDTH // 2 - text_surface.get_width() // 2,
++                         HEIGHT // 2 - text_surface.get_height() // 2))
++
++        pygame.display.flip()
++        clock.tick(60)
+ 
+ 
+ if __name__ == "__main__":
+-    app = QApplication(sys.argv)
+-    difficulty_selection = DifficultySelection()
+-    difficulty_selection.show()
+-    sys.exit(app.exec())
++    main_menu()
