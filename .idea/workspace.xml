@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ec5b741-f0cb-4a86-b599-8b855f23b8ac" name="Changes" comment="Добавил таймер в название окна">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="5ec5b741-f0cb-4a86-b599-8b855f23b8ac" name="Changes" comment="добавил возможность выбрать флаг">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mp.py" beforeDir="false" afterPath="$PROJECT_DIR$/mp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +57,7 @@
       <recent name="E:\Users\user\PycharmProjects\Desktop\minesWeeper" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.fdg">
+  <component name="RunManager" selected="Python.project">
     <configuration name="Primary" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="minesWeeper" />
       <option name="ENV_FILES" value="" />
@@ -172,10 +170,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.project" />
         <item itemvalue="Python.fdg" />
         <item itemvalue="Python.mp" />
         <item itemvalue="Python.exp" />
-        <item itemvalue="Python.project" />
         <item itemvalue="Python.Primary" />
       </list>
     </recent_temporary>
@@ -228,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740846063201</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="добавил возможность выбрать флаг">
+      <option name="closed" value="true" />
+      <created>1741094120701</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741094120701</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,6 +253,7 @@
     <MESSAGE value="exp.py и mp.py добавлены" />
     <MESSAGE value="Добавил таймер" />
     <MESSAGE value="Добавил таймер в название окна" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил таймер в название окна" />
+    <MESSAGE value="добавил возможность выбрать флаг" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил возможность выбрать флаг" />
   </component>
 </project>
